@@ -1,64 +1,66 @@
-# Anthropic
+<h1 align="center">
+  <img src="assets/anthropic-animated.svg" alt="Anthropic" width="560" />
+</h1>
 
-Raccolta di esercizi e prototipi legati al corso "Building with the Claude API". Il repository e organizzato per moduli (App starter, MCP, Prompting, RAG, Tools) con notebook e piccoli progetti di esempio.
+Collection of exercises and prototypes built during the "Building with the Claude API" course. The repository is organized by module, with notebooks and small projects that showcase different capabilities.
 
-## Struttura rapida
+## Quick Map
 
-| Cartella | Scopo |
+| Folder | Focus |
 | --- | --- |
-| `App_starter/` | Template MCP minimale con tool di esempio e test |
-| `MCP/` | CLI chat con server MCP locale (documenti, tool, prompt) |
-| `Prompting/` | Notebook per valutazione e testing di prompt |
-| `RAG/` | Pipeline RAG: chunking, embedding, retrieval, reranking |
-| `Tools/` | Esempi tool Anthropic (caching, code exec, web search, multimodale, streaming) |
+| `App_starter/` | **Starter MCP toolkit** (FastMCP server + example tools + tests) |
+| `MCP/` | **CLI MCP chat app** (local doc server, tools, prompts, autocomplete) |
+| `Prompting/` | **Prompt evaluation lab** (dataset generation + scoring + HTML report) |
+| `RAG/` | **RAG pipeline playground** (chunking, embeddings, BM25, reranking, hybrid) |
+| `Tools/` | **Tooling showcase** (caching, code execution, web search, multimodal, streaming) |
 
-## Dettagli per cartella
+## Folder Highlights
 
 <details>
-<summary><strong>App_starter</strong> - template MCP minimale</summary>
+<summary><strong>App_starter</strong> - Starter MCP toolkit</summary>
 
-- Server FastMCP in `main.py` che registra tool.
-- Tool `add` e conversione documenti binari -> markdown con `markitdown`.
-- Test base su fixture docx/pdf.
-- Dipendenze: `mcp[cli]`, `markitdown[docx,pdf]`, `pydantic`, `pytest`.
+- FastMCP server in `main.py` registering tools.
+- Example tools: numeric `add` and binary document -> markdown conversion.
+- Basic tests for DOCX/PDF fixtures.
+- Key deps: `mcp[cli]`, `markitdown[docx,pdf]`, `pydantic`, `pytest`.
 
 </details>
 
 <details>
-<summary><strong>MCP</strong> - progetto CLI chat</summary>
+<summary><strong>MCP</strong> - CLI MCP chat app</summary>
 
-- `cli_project/` avvia un client MCP e una CLI con autocomplete.
-- `mcp_server.py` espone risorse, tool e prompt su un set di documenti fittizi.
-- Gestione di tool use, prompt e risorse (anche con riferimenti `@doc`).
-- Dipendenze: `anthropic`, `mcp[cli]`, `prompt-toolkit`, `python-dotenv`.
-
-</details>
-
-<details>
-<summary><strong>Prompting</strong> - valutazione prompt</summary>
-
-- Notebook completo per generare dataset di test e valutare prompt.
-- Classe `PromptEvaluator` con generazione idee, casi di test e grading.
-- Report finale in HTML con statistiche e tabella risultati.
+- `cli_project/` runs the MCP client and an interactive CLI with autocomplete.
+- `mcp_server.py` exposes resources, tools, and prompts over sample docs.
+- Handles tool calls, prompts, and document references via `@doc`.
+- Key deps: `anthropic`, `mcp[cli]`, `prompt-toolkit`, `python-dotenv`.
 
 </details>
 
 <details>
-<summary><strong>RAG</strong> - retrieval-augmented generation</summary>
+<summary><strong>Prompting</strong> - Prompt evaluation lab</summary>
 
-- Chunking per dimensione, frasi e sezioni (`Chunk_text/`).
-- Ricerca lessicale BM25 e ricerca semantica con embedding.
-- Vector index, reranking, e approccio ibrido (RRF).
-- Esempi su un corpus unico (`Chunk_text/report.md`).
+- Notebook for prompt testing end-to-end.
+- `PromptEvaluator` builds test sets, grades outputs, and exports HTML reports.
+- Example evaluation scenario included.
 
 </details>
 
 <details>
-<summary><strong>Tools</strong> - tool Anthropic in pratica</summary>
+<summary><strong>RAG</strong> - RAG pipeline playground</summary>
 
-- Caching, code execution, text editor tool, thinking.
-- Web search con domini consentiti.
-- Input multimodale (immagini, PDF) e tool streaming.
-- Asset di supporto: CSV, immagini, PDF.
+- Multiple chunking strategies (size, sentence, section).
+- Lexical BM25 search + semantic embedding retrieval.
+- Vector indexing, reranking, and hybrid RRF workflows.
+- Shared corpus in `Chunk_text/report.md`.
+
+</details>
+
+<details>
+<summary><strong>Tools</strong> - Tooling showcase</summary>
+
+- Caching, code execution, and text editor tool patterns.
+- Web search with domain restrictions.
+- Multimodal examples (images/PDF) and tool streaming.
+- Support assets (CSV, images, PDF).
 
 </details>
